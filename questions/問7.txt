@@ -1,0 +1,28 @@
+次の記述中の「　　　」に入れる正しい答えを、解答群の中から選べ。
+　　関数includeは引数mainの中で引数subが登場する要素番号を返す関数である。
+　　関数includeをinclude("Mississippi","ssi")として呼び出したとき、戻り値は「　　　」となる。
+
+〔プログラム〕
+　　〇整数型:include(文字列型:main,文字列型:sub)
+　　　整数型配列:index ← -1
+　　　for(iを1からmainの文字数 - subの文字数 + 1まで1ずつ増やす)
+　　　　if(slice(main,i,subの文字数)がsubと等しい)
+　　　　　index ← i
+　　　　endif
+　　　endfor
+　　　return index
+  
+　　〇文字列型:slice(文字列型:str,整数型:start,整数型:len)
+　　　文字型配列:chars ← strを文字型配列へ変換する
+　　　文字列型:ret ← ""
+　　　for(iを0からlen - 1まで1ずつ増やす)
+　　　　ret ← ret + chars[start + i]
+　　　endfor
+　　　return ret
+
+
+　解答群
+　　ア　3
+　　イ　5
+　　ウ　6
+　　エ　8

@@ -1,0 +1,44 @@
+次のプログラムと記述中の「　a　」と「　b　」に入れる正しい答えを、解答群の中から選べ。
+　　関数addPlayerはPlayer型を受け取り、RankingListに追加するものである。
+　　なお、valueが高いPlayerインスタンスは、探索回数が少なくなるよう設計されている。
+　　また、メンバ変数は未定義という値が初期値として代入されるものとする。
+
+　　RankingListクラスのメンバ変数の説明
+　　　Player:top・・・ランキングのトップを表す変数
+
+　　Playerクラスのメンバ変数の説明
+　　　文字列型:name・・・名前を表す変数
+　　　整数型:value・・・ランキングを決定するうえで比較対象となる変数
+　　　Player:next・・・次の順位のプレイヤーへの参照を表す変数
+
+〔プログラム〕
+　　大域:RankingList:list ← RankingList()
+　　〇addPlayer(Player:player)
+　　　if(list.topが未定義と等しい)
+　　　　list.top ← player
+　　　else
+　　　　Player:ptr ← list.top
+　　　　Player:prev ← list.top
+　　　　while(「　a　」)
+　　　　　prev ← ptr
+　　　　　ptr ← ptr.next
+　　　　endwhile
+　　　　prev.next ← player
+　　　　player.next ← ptr
+　　　endif
+
+
+　　上記のプログラムには設計ミスがあり、list.topよりも高いvalueを持ったPlayerインスタンスを渡すと、「　b　」
+
+　解答群
+　　ア　a:player.valueがptr.valueより大きい
+　　　　b:エラーが発生する。
+
+　　イ　a:ptr.valueがplayer.valueより大きい
+　　　　b:エラーが発生する。
+
+　　ウ　a:player.valueがptr.valueより大きい
+　　　　b:意図しない位置に追加される。
+
+　　エ　a:ptr.valueがplayer.valueより大きい
+　　　　b:意図しない位置に追加される。

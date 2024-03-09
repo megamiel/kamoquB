@@ -1,0 +1,28 @@
+次のプログラム中の「　　　」に入れる正しい答えを、解答群の中から選べ。
+　関数reverse_stringは対象の文字列を受け取り、反転した文字列を返す関数である。
+　関数swapは対象の文字列とポジション1、ポジション2を受け取り、文字列のポジション1とポジション2の文字を交換した文字列を返す関数である。
+
+〔プログラム〕
+　　〇文字列型:reverse_string(文字列型:string)
+　　　for(iを1からstringの文字数まで1ずつ増やす)
+　　　　string ← 「　　　」
+　　　endfor
+　　　return string
+
+　　〇文字列型:swap(文字列型:string,整数型:mpt,整数型:smp)
+　　　文字列型:ret ← ""
+　　　文字型配列:chars ← stringを文字型配列へ変換する
+　　　文字型:tmp ← chars[mpt]
+　　　chars[mpt] ← chars[smp]
+　　　chars[smp] ← tmp
+　　　for(iを1からcharsの要素数まで1ずつ増やす)
+　　　　ret ← ret + chars[i]
+　　　endfor
+　　　return ret
+
+
+　解答群
+　　ア　swap(string,i,stringの文字数 - i + 1)
+　　イ　swap(string,stringの文字数 - i,i)
+　　ウ　swap(string,i,stringの文字数 - i)
+　　エ　swap(string,i + 1,stringの文字数 - i)

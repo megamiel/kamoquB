@@ -1,0 +1,24 @@
+次のプログラム中の「　　　」に入れる正しい答えを、解答群の中から選べ。
+　　関数std_devは整数型配列を受け取り、その引数の標準偏差を返す関数である。
+　　関数std_devが使う関数powは、第1引数として整数aを、第2引数として実数bを受け取り、aのb乗の値を実数型で返す。
+　　標準偏差とは、対象データの値と平均との間にある差を2乗したものを合計した上で、データの個数で割った正の平方根である。
+
+〔プログラム〕
+　　〇実数型:std_dev(整数型配列:scores)
+　　　整数型:total ← 0
+　　　for(iを1からscoresの要素数まで1ずつ増やす)
+　　　　total ← total + scores[i]
+　　　endfor
+　　　実数型:avg ← total / scoresの要素数
+　　　total ← 0
+　　　for(iを1からscoresの要素数まで1ずつ増やす)
+　　　　total ← total + 「　　　」
+　　　endfor
+　　　return (total / scoresの要素数)の平方根
+
+
+　解答群
+　　ア　pow(scores[i] - avg,2)
+　　イ　pow(2,scores[i] - avg)
+　　ウ　scores[i] - avg * scores[i] - avg
+　　エ　scores[i] - avg * (scores[i] - avg)

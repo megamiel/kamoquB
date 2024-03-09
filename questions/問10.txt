@@ -1,0 +1,16 @@
+次のプログラム中の「　　　」に入れる正しい答えを、解答群の中から選べ。
+　　関数additionは1ビット型を2つ受け取り、その引数を足した結果を返す関数である。
+　　なお、演算子 and は論理積、演算子 or は論理和、演算子 xor は排他的論理和、演算子 >> は論理右シフト、演算子 << は論理左シフトを表す。
+　　例えば、value >> nはvalueの値をnビットだけ右に論理シフトし、value << nはvalueの値をnビットだけ左に論理シフトする。
+
+〔プログラム〕
+　　〇2ビット型:addition(1ビット型:bit1,1ビット型:bit2)
+　　　2ビット型:result ← bit1 and bit2
+　　　result ← 「　　　」
+　　　return result
+
+　解答群
+　　ア　result or ((bit1 xor bit2) << 1)
+　　イ　result or (bit1 xor bit2)
+　　ウ　(result << 1) and (bit1 xor bit2)
+　　エ　(result << 1) or (bit1 xor bit2)

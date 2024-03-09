@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>科目Bプレテスト</title>
+    <style>
+        *{
+            font-family: Helvetica, Arial, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", "Meiryo", "Roboto", "ＭＳ Ｐゴシック", sans-serif;
+            font-size:20px;
+        }
+
+        h1{
+            font-size:32px;
+            text-align: center;
+            user-select: none;
+        }
+
+        main{
+            margin-left:20%;
+            margin-right:20%;
+            padding-left:2%;
+            padding-right:2%;
+            border-left: 1px solid #000000;
+            border-right: 1px solid #000000;
+        }
+
+        header{
+            position: fixed;
+            right:0;
+            top: 0;
+            text-align: center;
+            margin-top:1%;
+            margin-right:5%;
+            user-select: none;
+            font-size:28px;
+            border-radius: 10px;
+            padding:0.3%;
+            width:100px;
+            color:white;
+            background-color: black;
+        }
+
+        button{
+            position: fixed;
+            left:0;
+            top: 0;
+            text-align: center;
+            margin-top:1%;
+            margin-left:5%;
+            user-select: none;
+            font-size:20px;
+            border-radius: 10px;
+            padding:0.3%;
+            width:100px;
+            color:white;
+            background-color: black;
+        }
+
+        button:hover{
+            color:black;
+            background-color: white;
+        }
+
+        fieldset{
+            user-select: none;
+            margin-bottom:5%
+        }
+
+        label{
+            margin-right:3%;
+            user-select: none;
+        }
+
+        .screen {
+            position: relative;
+            width: 100%;
+            min-height: 99vh;
+            overflow: hidden;
+        }
+
+        .screen:before {
+            white-space: pre;
+            content: '\A\A科目Bプレテスト\A \A 試験時間:100分\A 問1～16 疑似言語及びアルゴリズム\A 問17～20 情報セキュリティ\A\A ENTERを押して開始';
+            color:white;
+            position: absolute;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            background: black;
+            font-size:26px;
+            transition: 1s cubic-bezier(.15,.65,.85,.65);
+        }
+
+        .isPlay:before {
+            transform: translate3d(100%, 0, 0);
+        }
+
+        .quest{
+            margin-bottom:1%;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <header id="timer">100:00</header>
+    <div class="screen">
+        <main id="mainContent">
+            <h1>科目Bプレテスト</h1>
+        </main>
+
+    </div>
+    <script>
+        let questions = [];
+        let ansers = [];
+        let yourAnser=[];
+    </script>
+    <script>
+        for (let i = 1; i <= 20; i++) {
+            const qxhr = new XMLHttpRequest();
+            qxhr.open("get", "questions/問" + i + ".txt");
+            qxhr.send();
+            qxhr.onreadystatechange = function () {
+                if (qxhr.readyState === 4 && qxhr.status === 200) {
+                    questions[i] = this.responseText;
+                }
+            };
+            const axhr = new XMLHttpRequest();
+            axhr.open("get", "ansers/問" + i + ".txt");
+            axhr.send();
+            axhr.onreadystatechange = function () {
+                if (axhr.readyState === 4 && axhr.status === 200) {
+                    ansers[i] = this.responseText;
+                }
+            };
+        }
+    </script>
+    <script>
+        var timer = document.getElementById("timer");
+        var time = 6000;
+        window.addEventListener("keypress",function(e){
+            if (e.keyCode == 13) {
+                for(let i=1;i<=16;i++){
+                    setQuestions(i);
+                }
+                for(let i=17;i<=20;i++){
+                    setSecQuestion(i);
+                }
+                document.getElementById("mainContent").innerHTML += '<button id="finish" onclick="confirmFinish()" type="button">終了する</button>';
+                $('.screen').addClass('isPlay');
+                countDown();
+                return false;
+            }
+        });
+
+        function setQuestions(index) {
+            let main = document.getElementById("mainContent");
+            let question = document.createElement("div");
+            question.className = "quest";
+            question.innerHTML = "問"+index+"　"+questions[index].replaceAll("\n", "<br>").replaceAll(":"," : ").replaceAll(",",", ").replaceAll(" ", "&nbsp;");
+            main.appendChild(question);
+            let name="問"+index;
+            main.innerHTML+='<fieldset><legend>問'+index+'</legend><div><label><input type="radio" name="'+name+'" value="ア"/>ア</label><label><input type="radio" name="' + name +'" value="イ" />イ</label><label><input type="radio" name="' + name +'" value="ウ" />ウ</label><label><input type="radio" name="'+name+'" value="エ" />エ</label></div></fieldset>'
+        }
+
+        function setSecQuestion(index){
+            let main = document.getElementById("mainContent");
+            let question = document.createElement("div");
+            question.className = "quest";
+            question.innerHTML = "問" + index + "　" + questions[index].replaceAll("\n", "<br>").replaceAll(":", " : ").replaceAll(",", ", ").replaceAll(" ", "&nbsp;");
+            main.appendChild(question);
+            let name = "問" + index;
+            main.innerHTML += '<fieldset><legend>問' + index + '</legend><div><label><input type="checkbox" name="' + name + '" value="ア"/>ア</label><label><input type="checkbox" name="' + name + '" value="イ" />イ</label><label><input type="checkbox" name="' + name + '" value="ウ" />ウ</label><label><input type="checkbox" name="' + name + '" value="エ" />エ</label><label><input type="checkbox" name="' + name + '" value="オ" />オ</label><label><input type="checkbox" name="' + name + '" value="カ" />カ</label><label><input type="checkbox" name="' + name + '" value="キ" />キ</label><label><input type="checkbox" name="' + name + '" value="ク" />ク</label><label><input type="checkbox" name="' + name + '" value="ケ" />ケ</label><label><input type="checkbox" name="' + name + '" value="コ" />コ</label></div></fieldset>'
+        }
+
+        function countDown(){
+            setTimeout(function () {
+                time--;
+                timer.textContent = Math.floor(time/60)+":"+(time%60<10?"0":"")+time%60;
+                if(time>0){
+                    countDown();
+                }else{
+                    finish();
+                }
+            }, 1000);
+        }
+
+        function confirmFinish(){
+            if(window.confirm("本当に終了しますか？")){
+                finish();
+            }
+        }
+
+        function finish(){
+            console.log("終了しました");
+            for(let i=1;i<=16;i++){
+                let elements=document.getElementsByName("問"+i);
+                for (let j = 0; j < 4; j++) {
+                    if (elements.item(j).checked) {
+                        yourAnser[i] = elements.item(j).value
+                    }
+                }
+            }
+
+            for (let i = 17; i <= 20; i++) {
+                let elements = document.getElementsByName("問" + i);
+                console.log(elements);
+                for (let j = 0; j < 10; j++) {
+                    if (elements.item(j).checked) {
+                        if(yourAnser[i]==null){
+                            yourAnser[i] = elements.item(j).value
+                        }else{
+                            yourAnser[i] += "," + elements.item(j).value;
+                        }
+                    }
+                }
+            }
+
+            let allocation=[0,20,20,20,20,30,30,30,30,50,50,50,50,100,100,100,100,50,50,50,50]
+            let score=0;
+            for(let i=1;i<allocation.length;i++){
+                if(yourAnser[i]==ansers[i]){
+                    score+=allocation[i];
+                }
+            }
+            localStorage.setItem("score",score);
+            window.open("subPages/result.html");
+        }
+    </script>
+</body>
+</html>

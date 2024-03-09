@@ -1,0 +1,24 @@
+次のプログラム中の「　　　」に入れる正しい答えを、解答群の中から選べ。
+　　関数selection_sortは配列を選択ソートによって昇順に並べ替える関数である。
+　　選択ソートとは、配列内の最小の要素を見つけ、先頭から埋めていくソート方法である。
+
+〔プログラム〕
+　　〇selection_sort(整数型配列:array)
+　　　for(iを1からarrayの要素数 - 1まで1ずつ増やす)
+　　　　整数型:min_index ← i
+　　　　for(jをi + 1からarrayの要素数まで1ずつ増やす)
+　　　　　if(array[j]がarray[min_index]より小さい)
+　　　　　　「　　　」
+　　　　　endif
+　　　　endfor
+　　　　整数型:tmp ← array[min_index]
+　　　　array[min_index] ← array[i]
+　　　　array[i] ← tmp
+　　　endfor
+
+
+　解答群
+　　ア　min_index ← i
+　　イ　min_index ← j
+　　ウ　min_index ← array[i]
+　　エ　min_index ← array[j]

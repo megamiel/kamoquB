@@ -1,0 +1,33 @@
+次のプログラム中の「　　　」に入れる正しい答えを、解答群の中から選べ。
+　　大域変数treeArrayのデータ構造は完全二分木となっており、文字数、文字コードを比較対象として昇順に並べ替えられている。
+　　関数leftは指定された文字列の左側の子要素を返す関数である。
+　　使用例:left("edr") → "pc"
+　　関数rightは指定された文字列の右側の子要素を返す関数である。
+　　使用例:right("edr") → "software"
+
+〔プログラム〕
+　　大域:文字列型:treeArray ← {"edr","pc","software","ai","waf","computer","application"}
+
+　　〇文字列型:left(文字列型:str)
+　　　return treeArray[leftIndex(str)]
+
+　　〇文字列型:right(文字列型:str)
+　　　return treeArray[leftIndex(str) + 1]
+
+　　〇整数型:leftIndex(文字列型:str)
+　　　return 「　　　」
+
+　　〇整数型:find(文字列型:str)
+　　　for(iを1からtreeArrayの要素数まで1ずつ増やす)
+　　　　if(treeArray[i]がstrと等しい)
+　　　　　return i
+　　　　endif
+　　　endfor
+　　　return -1
+
+
+　解答群
+　　ア　find(str)
+　　イ　find(str) + 1
+　　ウ　find(str) * 2
+　　エ　find(str) * 2 + 1

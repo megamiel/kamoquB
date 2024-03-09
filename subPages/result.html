@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>科目Bプレテスト</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        * {
+            color: white;
+            background-color: black;
+            font-family: Helvetica, Arial, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", "Meiryo", "Roboto", "ＭＳ Ｐゴシック", sans-serif;
+        }
+
+        div {
+            text-align: center;
+        }
+
+        h1{
+            font-size:32px;
+        }
+
+        h2{
+            font-size:28px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <br><br><br><br><br>
+        <h1 id="result"></h1>
+        <h2 id="score"></h2>
+        <p>これ以上コード書くのきついので、この画面を写真で撮って送ってください</p>
+    </div>
+
+    <script>
+        let score=localStorage.getItem("score");
+        let resultElement=document.getElementById("result");
+        let scoreElement=document.getElementById("score");
+        scoreElement.textContent="スコア:"+score;
+        if(score>=600){
+            resultElement.textContent="結果:合格";
+        }else{
+            resultElement.textContent="結果:不合格";
+        }
+    </script>
+</body>
+
+</html>

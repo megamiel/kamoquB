@@ -1,0 +1,24 @@
+次のプログラム中の「　　　」に入れる正しい答えを、解答群の中から選べ。
+　　関数tetranacciは整数型を受け取り、テトラナッチ数列の引数番目の値を返す関数である。
+　　テトラナッチ数列とは、前の4つの数の和が次の数になる数列のことである。
+　　なお、テトラナッチ数列の最初の4つの数は0,0,0,1とする。
+
+〔プログラム〕
+　　〇tetranacci(整数型:n)
+　　　if(nが4より小さい)
+　　　　return 0
+　　　elseif(nが4と等しい)
+　　　　return 1
+　　　else
+　　　　整数型:result ← 0
+　　　　for(iを1から4まで1ずつ増やす)
+　　　　　result ← result + 「　　　」
+　　　　endfor
+　　　　return result
+　　　endif
+
+　解答群
+　　ア　tetranacci(i)
+　　イ　tetranacci(n - i)
+　　ウ　tetranacci(4 - i)
+　　エ　tetranacci(n)
