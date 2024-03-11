@@ -6,7 +6,7 @@
 　　使用例:right("edr") → "software"
 
 〔プログラム〕
-　　大域:文字列型:treeArray ← {"edr","pc","software","ai","waf","computer","application"}
+　　大域:文字列型:treeArray ← {"edr","pc","software","ai","pm","computer","application"}
 
 　　〇文字列型:left(文字列型:str)
 　　　return treeArray[leftIndex(str)]
